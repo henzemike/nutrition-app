@@ -1,3 +1,1 @@
-json.array! @ingredients.each do |ingredient|
-  json.partial! "ingredient.json.jbuilder", ingredient: ingredient
-end
+json.partial! "ingredient.json.jbuilder", ingredient: ingredient

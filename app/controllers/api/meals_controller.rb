@@ -26,7 +26,7 @@ class Api::MealsController < ApplicationController
     if @meal.save # happy path
       #variable for params ingredient_id array frontend
       #eval for testing in insomnia
-      ingredients = eval(params[:ingredients])
+      ingredients = params[:ingredients]
       #loop through each ingredient inlcuded in the DB
       #ingredients = ["chicken", "kale", "turkey"]
       ingredients.each do |ingredient|
