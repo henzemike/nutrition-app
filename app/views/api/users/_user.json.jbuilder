@@ -3,3 +3,8 @@ json.first_name @user.first_name
 json.last_name @user.last_name
 json.user_name @user.user_name
 json.email @user.email
+json.breakfast @user.breakfast
+json.snack1 @user.snack1
+json.lunch @user.lunch
+json.snack2 @user.snack2
+json.dinner @user.dinner

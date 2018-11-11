@@ -17,7 +17,12 @@ class Api::UsersController < ApplicationController
       user_name: params[:user_name],
       email: params[:email],
       password: params[:password],
-      password_confirmation: params[:password_confirmation]
+      password_confirmation: params[:password_confirmation],
+      breakfast: params[:breakfast],
+      snack1: params[:snack1],
+      lunch: params[:lunch],
+      snack2: params[:snack2],
+      dinner: params[:dinner]
     )
 
     if user.save
@@ -34,6 +39,11 @@ class Api::UsersController < ApplicationController
     @user.first_name = params[:first_name] || @user.first_name
     @user.last_name = params[:last_name] || @user.last_name
     @user.email = params[:email] || @user.email
+    @user.breakfast = params[:breakfast] || @user.breakfast
+    @user.snack1 = params[:snack1] || @user.snack1
+    @user.lunch = params[:lunch] || @user.lunch
+    @user.snack2 = params[:snack2] || @user.snack2
+    @user.dinner = params[:dinner] || @user.dinner
     if @user.save 
       render "show.json.jbuilder"
     else

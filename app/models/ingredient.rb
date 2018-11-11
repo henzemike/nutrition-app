@@ -24,4 +24,7 @@ class Ingredient < ApplicationRecord
     nutrients["nf_total_fat"]
   end
 
+
+
+
 end
