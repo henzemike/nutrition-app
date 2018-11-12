@@ -2,29 +2,24 @@ class Ingredient < ApplicationRecord
   has_many :ingredient_meals
   has_many :meals, through: :ingredient_meals
 
+  validates :ingredient, presence: true 
 
-  def protein
-    # use api id to retrieve protein for this ingredient
+
+  def nutrients
+    # use api id to retrieve nutrients for this ingredient
     nutrients = HTTP.get("https://api.nutritionix.com/v1_1/item?id=#{nutritionix_api_id}&appId=#{ENV['API_ID']}&appKey=#{ENV['API_KEY']}").parse
     # parsing through to get protein
-    nutrients["nf_protein"]
+    nutrients_hash = {
+      protein: nutrients["nf_protein"].to_f, 
+      carbohydrates: nutrients["nf_total_carbohydrate"].to_f,
+      fat: nutrients["nf_total_fat"].to_f,
+      magnesium: nutrients["nf_magnesium_dv"].to_f,
+      zinc: nutrients["nf_zinc_dv"].to_f,
+      iron: nutrients["nf_iron_dv"].to_f,
+      folate: nutrients["nf_folate_dv"].to_f,
+      vitamin_d: nutrients["nf_vitamin_d_dv"].to_f
+    }
+    return nutrients_hash
   end
-
-  def carbohydrate
-    # use api id to retrieve carbohydrates for this ingredient
-    nutrients = HTTP.get("https://api.nutritionix.com/v1_1/item?id=#{nutritionix_api_id}&appId=#{ENV['API_ID']}&appKey=#{ENV['API_KEY']}").parse
-    # parsing through to get protein
-    nutrients["nf_total_carbohydrate"]
-  end
-
-  def fat
-    # use api id to retrieve fats for this ingredient
-    nutrients = HTTP.get("https://api.nutritionix.com/v1_1/item?id=#{nutritionix_api_id}&appId=#{ENV['API_ID']}&appKey=#{ENV['API_KEY']}").parse
-    # parsing through to get protein
-    nutrients["nf_total_fat"]
-  end
-
-
-
 
 end

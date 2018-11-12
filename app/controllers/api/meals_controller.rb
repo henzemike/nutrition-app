@@ -3,7 +3,7 @@ class Api::MealsController < ApplicationController
   require "http"
 
   def index
-    #create action to show users meals by default and using parameters to see all users meals
+    #create action to show users meals by default and using parameters to see all users meals (icebox)
     @meals = current_user.meals
     if params[:search] == "all"
       @meals = Meal.all
@@ -25,7 +25,6 @@ class Api::MealsController < ApplicationController
 
     if @meal.save # happy path
       #variable for params ingredient_id array frontend
-      #eval for testing in insomnia
       ingredients = params[:ingredients]
       #loop through each ingredient inlcuded in the DB
       #ingredients = ["chicken", "kale", "turkey"]
