@@ -1,0 +1,15 @@
+# users
+User.create([
+  {first_name: "Mike", last_name: "Henze", user_name: "mikehenze", email: "yashuachrist@gmail.com", password_digest: "$gdfheuihuidfhjkebtuihudg"}
+])
+
+User.create([
+  {first_name: "Dave", last_name: "Brown", user_name: "davehenry", email: "dave@gmail.com", password_digest: "$gdfheudhuidfhjkebr$ihudg"}
+])
+# users end
+
+# meals
+Meal.create ([
+  {user_id: 1, name: "grilled steak", recipe_instructions: "Grill chuck steak untill tender, cut open and if slightly pink it is cooked"}
+])
+#  meals end

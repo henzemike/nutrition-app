@@ -5,14 +5,14 @@ class Api::MealsController < ApplicationController
   def index
     #create action to show users meals by default and using parameters to see all users meals (icebox)
     @meals = current_user.meals
-    if params[:search] == "all"
-      @meals = Meal.all
-    end
+    # if params[:search] == "all"
+    #   @meals = Meal.all
+    # end
     render "index.json.jbuilder"
   end
 
   def show
-    @meal = Meal.find(params[:id])
+    @meal = current_user
     render "show.json.jbuilder"
   end
 
@@ -49,6 +49,7 @@ class Api::MealsController < ApplicationController
 
         
           #add ingredient name in ingredient table
+          # store nutrient data into ingredient
           new_ingredient = Ingredient.create(
             name: ingredient, nutritionix_api_id: nutritionix_id
           )

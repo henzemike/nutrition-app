@@ -8,7 +8,7 @@
 
 # users
 User.create([
-  {first_name: "Jack", last_name: "Henry", user_name: "jackhenry", email: "jack@gmail.com", password_digest: "$gdfheuihuidfhjkebtuihudg"}
+  {first_name: "joe", last_name: "Henry", user_name: "joehenry", email: "joeh@gmail.com", password_digest: "$gdfheuihuidfhjkebtuihudg"}
 ])
 
 User.create([
@@ -16,53 +16,25 @@ User.create([
 ])
 # users end
 
-# ingredients
-Ingredient.create([
-  {name: "chicken breast", nutritionix_api_id: 112}
-])
-
-Ingredient.create([
-  {name: "jasmine rice", nutritionix_api_id: 134}
-])
-
-Ingredient.create([
-  {name: "red potato", nutritionix_api_id: 108}
-])
-
-Ingredient.create([
-  {name: "ground turkey", nutritionix_api_id: 156}
-])
-
-Ingredient.create([
-  {name: "kale", nutritionix_api_id: 121}
-])
-#ingredients end
-
 # meals
 Meal.create ([
-  {user_id: 1, name: "grilled chicken and rice", recipe_instructions: "Grill chicken breast, boil water, add rice and cook for 15 minutes"}
+  {user_id: 1, name: "grilled steak", recipe_instructions: "Grill chuck steak untill tender, cut open and if slightly pink it is cooked"}
+])
+#  meals end
+
+
+# ingredients
+Ingredient.create([
+  {name: "chuck steak", nutritionix_api_id: "58ad39bdf7f1352754691416"}
 ])
 
-Meal.create ([
-  {user_id: 2, name: "turkey and kale", recipe_instructions: "brown turkey, bake kale and serve"}
+Ingredient.create([
+  {name: "banana", nutritionix_api_id: "513fceb475b8dbbc21000fd4"}
 ])
-# meals end
+#ingredients end
 
 #ingredient_meals
 IngredientMeal.create([
   {ingredient_id: 1, meal_id: 1}
 ])
-
-IngredientMeal.create([
-  {ingredient_id: 2, meal_id: 1}
-])
-
-IngredientMeal.create([
-  {ingredient_id: 4, meal_id: 2}
-])
-
-IngredientMeal.create([
-  {ingredient_id: 5, meal_id: 2}
-])
-
 #ingredient_meals end

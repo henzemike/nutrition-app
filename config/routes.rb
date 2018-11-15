@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     get "/users/me" => "users#profile"
     get "/users/:id" => "users#show"
     post "/users" => "users#create"
-    patch "/users/:id" => "users#update"
-    delete "/users/:id" => "users#destroy"
+    patch "/users/me" => "users#update"
+    delete "/users/me" => "users#destroy"
 
     get "/ingredients" => "ingredients#index"
     get "/ingredients/:id" => "ingredients#show"
